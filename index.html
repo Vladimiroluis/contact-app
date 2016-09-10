@@ -1,16 +1,38 @@
 <!doctype html>
 <html ng-app="contactApp">
+
   <head>
     <title>Contact List</title>
-    <script src='lib/angular/angular.js'></script>
-    <script>
-      var app = angular.module("contactApp", []);
-      app.controller("contactCtrl", function ($scope){
-         $scope.message = "Hello World!";
-    });
-    </script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
   </head>
   <body ng-controller="contactCtrl">
-      {{message}}
+     <div class="jumbotron">
+          <h3>Contact's List</h3>
+          <table class="table table-striped">
+            <tr>
+              <th>Name</th>
+              <th>Telephone's Number</th>
+            </tr>
+            <tr ng-repeat="contact in contacts">
+              <td>{{contact.name}}</td>
+              <td>{{contact.number}}</td>
+            </tr>
+          </table>
+          <input class="form-control" type="text" ng-model="contact.name" placeholder="Name">
+          <input class="form-control" type="text" ng-model="contact.number" placeholder="Telephone's Number">
+          <button class="btn btn-primary" ng-click="AddContact(contact)">Add Contact</button>
+     </div>
+
+
+
+
+      <!-- JavaScript -->
+      <script src="lib/angular/angular.js"></script>
+      <script src="js/app.js"></script>
   </body>
+
 </html>
